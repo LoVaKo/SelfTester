@@ -7,11 +7,20 @@ import java.util.Scanner;
 public class TestSet {
     private final static Scanner scanner = new Scanner(System.in);
     private final LinkedHashMap<String, String> questionSet;
-    private final String name;
+    private String name;
 
-    public TestSet(String name) {
+    public TestSet() {
         this.questionSet = new LinkedHashMap<>();
-        this.name = name;
+        this.name = "";
+        createSet();
+    }
+
+    private void createSet() {
+        System.out.print("Name of test set: ");
+        String name = scanner.nextLine();
+        setName(name);
+        addQuestion();
+        printQuestionSet();
     }
 
     public void addQuestion() {
@@ -52,4 +61,9 @@ public class TestSet {
 
     }
 
+    // Getters and setters
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
